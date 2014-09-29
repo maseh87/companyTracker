@@ -10,17 +10,17 @@ var express    = require('express'),
     cookieParser = require('cookie-parser');
 
 
-mongoose.connect('mongodb://localhost/weaknessjs');
+// mongoose.connect('mongodb://localhost/weaknessjs');
 
-passport.use(new github({
-  clientID: process.env.GH_CLIENT_ID,
-  clientSecret: process.env.GH_CLIENT_SECRET
-}, function(token, tokenSecret, profile, done) {
-  //need to save tokens also in case I need to go back to github in the future
-  //need to find or create a user based on the profile I received from github
-  //call the done function to end this and attach the profile to the req.user
-  done(null, profile);
-}));
+// passport.use(new github({
+//   clientID: process.env.GH_CLIENT_ID,
+//   clientSecret: process.env.GH_CLIENT_SECRET
+// }, function(token, tokenSecret, profile, done) {
+//   //need to save tokens also in case I need to go back to github in the future
+//   //need to find or create a user based on the profile I received from github
+//   //call the done function to end this and attach the profile to the req.user
+//   done(null, profile);
+// }));
 
 
 var todos = [];
@@ -38,19 +38,25 @@ app.use(passport.initialize());
 
 
 //auth route for github
-app.get('/github', passport.authenticate('github', {
-  session: false
-}));
+// app.get('/github', passport.authenticate('github', {
+//   session: false
+// }));
 //github call url I specified in my github profile
-app.get('/github/callback', passport.authenticate('github', {
-  session: false
-}), function(req, res) {
-  var token = jsonWT.sign({id: req.user.id}, process.env.TOKEN_SECRET, {});
-  // console.log(token, ' token');
-  res.cookie('todos', JSON.stringify(token));
-  //call the close window route to close the pop up window
-  res.redirect('/closeWindow');
+// app.get('/github/callback', passport.authenticate('github', {
+//   session: false
+// }), function(req, res) {
+//   var token = jsonWT.sign({id: req.user.id}, process.env.TOKEN_SECRET, {});
+//   // console.log(token, ' token');
+//   res.cookie('todos', JSON.stringify(token));
+//   //call the close window route to close the pop up window
+//   res.redirect('/closeWindow');
+// });
+
+app.get('/', function(req, res, next) {
+  res.send(__dirname + '/client');
 });
+
+
 
 app.get('/todos', function(req, res, next) {
   res.send(todos);

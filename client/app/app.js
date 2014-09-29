@@ -15,7 +15,6 @@ angular.module('todoApp', [
 })
 //when the application is loaded and ready to run this method is run. This is where auth will be checked
 .run(function($rootScope, $state, $cookieStore, AuthFactory) {
-  //had to use $cookies because $cookieStore requires sessions and I disabled them
   var cookie = $cookieStore.get('todos');
   console.log(cookie);
   $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
