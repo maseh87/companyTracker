@@ -2,24 +2,43 @@
   "name": "companyTracker",
   "version": "0.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "gulpfile.js",
   "dependencies": {
-    "express": "~4.9.4",
-    "body-parser": "~1.8.3",
-    "mongoose": "^3.8.16",
-    "morgan": "^1.3.1",
-    "passport": "^0.2.1",
-    "passport-twitter": "^1.0.2",
-    "express-jwt": "^0.3.2",
-    "jsonwebtoken": "^1.1.2",
-    "cookie-parser": "^1.3.3",
-    "passport-github": "^0.1.5"
+    "body-parser": "~1.9.0",
+    "composable-middleware": "~0.3.0",
+    "cookie-parser": "~1.3.3",
+    "express": "~4.9.5",
+    "express-jwt": "~0.3.2",
+    "express-session": "~1.8.2",
+    "jsonwebtoken": "~1.1.2",
+    "lodash": "~2.4.1",
+    "method-override": "~2.2.0",
+    "mongoose": "~3.8.16",
+    "morgan": "~1.3.2",
+    "passport": "~0.2.1",
+    "passport-google-oauth": "~0.1.5",
+    "passport-local": "~1.0.0",
+    "passport-twitter": "~1.0.2",
+    "serve-favicon": "~2.1.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-concat": "^2.4.1",
+    "gulp": "^3.8.8",
+    "gulp-uglify": "^1.0.1",
+    "gulp-stylus": "^1.3.3",
+    "gulp-jshint": "^1.8.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maseh87/companyTracker.git"
   },
   "author": "Mason Hargrove <maseh87@gmail.com> (http://masonhargrove.com/)",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maseh87/companyTracker/issues"
+  },
+  "homepage": "https://github.com/maseh87/companyTracker"
 }

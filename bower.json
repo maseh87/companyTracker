@@ -1,6 +1,7 @@
 {
   "name": "companyTracker",
   "version": "0.0.0",
+  "homepage": "https://github.com/maseh87/companyTracker",
   "authors": [
     "Mason <maseh87@gmail.com>"
   ],
@@ -14,8 +15,10 @@
   ],
   "dependencies": {
     "angular": "~1.2.25",
-    "bootstrap-css-only": "~3.2.0",
     "angular-ui-router": "~0.2.11",
-    "angular-cookies": "~1.2.25"
+    "angular-resource": "~1.2.25",
+    "angular-cookies": "~1.2.25",
+    "lodash": "~2.4.1",
+    "angular-mocks": "~1.2.25"
   }
 }
