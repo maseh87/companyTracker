@@ -19,7 +19,8 @@
     "passport-google-oauth": "~0.1.5",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.2",
-    "serve-favicon": "~2.1.5"
+    "serve-favicon": "~2.1.5",
+    "compression": "^1.1.0"
   },
   "devDependencies": {
     "gulp-concat": "^2.4.1",
