@@ -17,7 +17,9 @@ if (config.seedDB) { require('./config/seed'); }
 
 
 //Start server
-// app.listen()
+app.listen(config.port, config.ip, function() {
+  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+})
 
 // Expose app for testing and other things
 exports = module.exports = app;
