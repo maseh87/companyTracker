@@ -26,6 +26,13 @@ exports = module.exports = function(app) {
   app.use(cookieParser());
   app.use(passport.initialize());
   app.use(express.static(path.join(config.root, 'bower_components')));
+  // I have to use sessions to authorize with twitter
+  app.use(session({
+    secret: config.secrets.session,
+    resave: true,
+    saveUninitialized: true,
+    store: new mongoStore({mongoose_connection: mongoose.connection})
+  }));
 
   if('production' === env) {
     app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
@@ -39,6 +46,6 @@ exports = module.exports = function(app) {
     app.use(express.static(path.join(config.root, 'app')));
     app.set('appPath', config.root + '/app');
     app.use(morgan('dev'));
-    app.use(errorHandler());
+    app.use(errorHandler()); //make sure this is last
   }
 };
