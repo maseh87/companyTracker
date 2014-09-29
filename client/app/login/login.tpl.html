@@ -1,0 +1,12 @@
+<div class="container">
+  <form ng-submit="signup(credentials)" novalidate>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" ng-model="credentials.username">
+      <label for="password">Password:</label>
+      <input type="text" class="form-control" ng-model="credentials.password"> </br>
+      <button class="btn btn-primary" type="submit">Login</button>
+      <button ng-click="openWindow()">Github</button>
+    </div>
+  </form>
+</div>
