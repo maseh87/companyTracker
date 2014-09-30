@@ -48,7 +48,8 @@
     "gulp-csso": "^0.2.9",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-uncss": "^0.5.0",
-    "gulp-imagemin": "^1.0.1"
+    "gulp-imagemin": "^1.0.1",
+    "path": "^0.4.9"
   },
   "devDependencies": {
     "gulp-concat": "^2.4.1",

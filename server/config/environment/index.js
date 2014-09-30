@@ -16,9 +16,11 @@ var defaults = {
   //Root path to the server
   root: path.normalize(__dirname + '/../../..'),
 
-  port: process.env.PORT || 4000,
+  port: process.env.PORT || 9000,
 
   seedDB: false,
+
+  userRoles: ['guest', 'user', 'admin'],
 
   secrets: {
     jwt: process.env.JWT_SECRET

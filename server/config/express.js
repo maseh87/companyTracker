@@ -10,7 +10,10 @@ var express       = require('express'),
     errorHandler  = require('errorhandler'),
     path          = require('path'),
     config        = require('./environment'),
-    passport      = require('passport');
+    passport      = require('passport'),
+    session       = require('express-session'),
+    mongoStore    = require('connect-mongo')(session),
+    mongoose      = require('mongoose');
 
 
 exports = module.exports = function(app) {
@@ -35,16 +38,17 @@ exports = module.exports = function(app) {
   }));
 
   if('production' === env) {
-    app.use(favicon(path.join(config.root, 'dist', 'favicon.ico')));
-    app.use(express.static(path.join(config.root, 'dist')));
-    app.set('appPath', config.root + '/dist');
+    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
+    app.use(express.static(path.join(config.root, 'client')));
+    app.set('appPath', config.root + '/client');
     app.use(morgan('dev'));
   }
 
   if ('development' === env || 'test' === env) {
+    app.use(require('connect-livereload')());
     app.use(express.static(path.join(config.root, '.tmp')));
-    app.use(express.static(path.join(config.root, 'app')));
-    app.set('appPath', config.root + '/app');
+    app.use(express.static(path.join(config.root, 'client')));
+    app.set('appPath', 'client');
     app.use(morgan('dev'));
     app.use(errorHandler()); //make sure this is last
   }
