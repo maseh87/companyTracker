@@ -1,12 +1,12 @@
 'use strict';
 
-var User = require('../api/user.model');
+var User = require('../api/user/user.model');
 
 
 User.find({}).remove(function() {
   User.create({
     providers: {
-      github: {
+      google: {
         id: 'efhkshfiwhf',
         token: 'sfosuowsfh hwowojwjfpu83289h'
       }

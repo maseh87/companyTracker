@@ -10,6 +10,7 @@ exports = module.exports = function(app) {
   // All other routes should direct to the index.html
   app.route('/*')
     .get(function(req, res) {
+      console.log('_____here_____');
       res.sendfile(app.get('appPath') + '/index.html');
     });
 };
