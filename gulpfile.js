@@ -14,7 +14,7 @@ var gulp        = require('gulp'),
 
 try {
   variables = require('./server/config/_local.env');
-} catch {
+} catch(e) {
   variables = {};
 }
 
@@ -115,25 +115,25 @@ gulp.task('fonts', function () {
 // Compile and Automatically Prefix Stylesheets
 gulp.task('styles', function () {
   // For best performance, don't add Sass partials to `gulp.src`
-  return gulp.src([
-      'app/styles/*.scss',
-      'app/styles/**/*.css',
-      'app/styles/app/app.styl',
-      'app/styles/components/components.scss'
-    ])
-    .pipe($.changed('.tmp/styles', {extension: '.css'}))
-    .pipe($.if('*.scss', $.rubySass({
-      style: 'expanded',
-      precision: 10
-    })
-    .on('error', console.error.bind(console))
-    ))
-    .pipe($.if('*.styl', $.stylus()))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe($.if('*.css', $.csso()))
-    .pipe(gulp.dest('dist/styles'))
-    .pipe($.size({title: 'styles'}));
+  // return gulp.src([
+  //     'app/styles/*.scss',
+  //     'app/styles/**/*.css',
+  //     'app/styles/app/app.styl',
+  //     'app/styles/components/components.scss'
+  //   ])
+  //   .pipe($.changed('.tmp/styles', {extension: '.css'}))
+  //   .pipe($.if('*.scss', $.rubySass({
+  //     style: 'expanded',
+  //     precision: 10
+  //   })
+  //   .on('error', console.error.bind(console))
+  //   ))
+  //   .pipe($.if('*.styl', $.stylus()))
+  //   .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+  //   .pipe(gulp.dest('.tmp/styles'))
+  //   .pipe($.if('*.css', $.csso()))
+  //   .pipe(gulp.dest('dist/styles'))
+  //   .pipe($.size({title: 'styles'}));
 });
 
 // Scan Your HTML For Assets & Optimize Them

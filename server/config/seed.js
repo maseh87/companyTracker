@@ -1,6 +1,6 @@
 'use strict';
 
-var User = require('../api/user/user.model');
+var User = require('../api/user.model');
 
 
 User.find({}).remove(function() {
