@@ -1,9 +1,10 @@
 'use strict';
 
-//Just for tests
-
+// Test specific configuration
+// ===========================
 module.exports = {
+  // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/companyTracker-test'
+    uri: 'mongodb://localhost/companytracker-test'
   }
 };

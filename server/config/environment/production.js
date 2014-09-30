@@ -1,15 +1,23 @@
 'use strict';
 
-exports = module.exports = {
-  //server ip
-  ip: process.env.IP || undefined,
+// Production specific configuration
+// =================================
+module.exports = {
+  // Server IP
+  ip:       process.env.OPENSHIFT_NODEJS_IP ||
+            process.env.IP ||
+            undefined,
 
-  //server port
-  port: process.env.PORT || 8080,
-  // Mongo connection info
+  // Server port
+  port:     process.env.OPENSHIFT_NODEJS_PORT ||
+            process.env.PORT ||
+            8080,
+
+  // MongoDB connection options
   mongo: {
-    uri: process.env.MONGOHQ_URL ||
-         process.env.MONGOLAB_URI ||
-         'mongodb://localhost/companyTracker'
+    uri:    process.env.MONGOLAB_URI ||
+            process.env.MONGOHQ_URL ||
+            process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
+            'mongodb://localhost/companytracker'
   }
 };
